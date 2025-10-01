@@ -21,18 +21,18 @@ const Footer = () => {
               Empowering farmers with cutting-edge technology and expert knowledge to achieve sustainable agriculture.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors duration-200">
+              <button onClick={() => window.open('https://facebook.com/cropinfo')} className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors duration-200">
                 <i className="fab fa-facebook text-xl"></i>
-              </a>
-              <a href="#" className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors duration-200">
+              </button>
+              <button onClick={() => window.open('https://twitter.com/cropinfo')} className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors duration-200">
                 <i className="fab fa-twitter text-xl"></i>
-              </a>
-              <a href="#" className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors duration-200">
+              </button>
+              <button onClick={() => window.open('https://instagram.com/cropinfo')} className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors duration-200">
                 <i className="fab fa-instagram text-xl"></i>
-              </a>
-              <a href="#" className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors duration-200">
+              </button>
+              <button onClick={() => window.open('https://linkedin.com/company/cropinfo')} className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors duration-200">
                 <i className="fab fa-linkedin text-xl"></i>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -122,9 +122,9 @@ const Footer = () => {
               © 2024 CropInfo. All rights reserved.
             </div>
             <div className="flex flex-wrap gap-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Terms of Service</a>
-              <a href="#" className="text-gray-400 hover:text-green-400 transition-colors">Cookie Policy</a>
+              <Link to="/privacy-policy" className="text-gray-400 hover:text-green-400 transition-colors">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="text-gray-400 hover:text-green-400 transition-colors">Terms of Service</Link>
+              <Link to="/cookie-policy" className="text-gray-400 hover:text-green-400 transition-colors">Cookie Policy</Link>
             </div>
           </div>
         </div>
