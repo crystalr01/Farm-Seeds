@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 const Gallery = () => {
   const [filter, setFilter] = useState('all');
@@ -49,18 +49,18 @@ const Gallery = () => {
     document.body.style.overflow = 'hidden';
   };
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
     document.body.style.overflow = 'unset';
-  };
+  }, []);
 
-  const nextImage = () => {
+  const nextImage = useCallback(() => {
     setCurrentImageIndex((prev) => (prev + 1) % filteredItems.length);
-  };
+  }, [filteredItems.length]);
 
-  const prevImage = () => {
+  const prevImage = useCallback(() => {
     setCurrentImageIndex((prev) => (prev - 1 + filteredItems.length) % filteredItems.length);
-  };
+  }, [filteredItems.length]);
 
   const goToImage = (index) => {
     setCurrentImageIndex(index);
@@ -284,8 +284,8 @@ const Gallery = () => {
                 key={filterOption.key}
                 onClick={() => setFilter(filterOption.key)}
                 className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${filter === filterOption.key
-                    ? 'bg-gradient-to-r from-green-500 to-blue-600 text-white shadow-lg'
-                    : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-green-500 hover:shadow-md'
+                  ? 'bg-gradient-to-r from-green-500 to-blue-600 text-white shadow-lg'
+                  : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-green-500 hover:shadow-md'
                   }`}
               >
                 <span className="mr-2">{filterOption.icon}</span>
@@ -402,8 +402,8 @@ const Gallery = () => {
                     key={item.id}
                     onClick={() => goToImage(index)}
                     className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${index === currentImageIndex
-                        ? 'border-white shadow-lg'
-                        : 'border-white/30 hover:border-white/60'
+                      ? 'border-white shadow-lg'
+                      : 'border-white/30 hover:border-white/60'
                       }`}
                   >
                     <img

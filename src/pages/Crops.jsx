@@ -278,8 +278,8 @@ const Crops = () => {
                 key={filterOption.key}
                 onClick={() => setFilter(filterOption.key)}
                 className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${filter === filterOption.key
-                    ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg'
-                    : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-green-500 hover:shadow-md'
+                  ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg'
+                  : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-green-500 hover:shadow-md'
                   }`}
               >
                 <span className="mr-2">{filterOption.icon}</span>
