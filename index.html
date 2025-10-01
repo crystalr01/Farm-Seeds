@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Information Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'crop-green': '#22c55e',
+                        'crop-brown': '#92400e',
+                        'crop-yellow': '#f59e0b',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-green-50 to-yellow-50 min-h-screen">
+    <!-- Navigation -->
+    <div id="navbar-container"></div>
+
+    <!-- Main Content Container -->
+    <div id="main-content"></div>
+    
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <!-- Component Scripts -->
+    <script src="src/components/Navbar.js"></script>
+    <script src="src/components/Hero.js"></script>
+    <script src="src/components/About.js"></script>
+    <script src="src/components/Services.js"></script>
+    <script src="src/components/Gallery.js"></script>
+    <script src="src/components/Contact.js"></script>
+    <script src="src/components/Footer.js"></script>
+    
+    <!-- Page Scripts -->
+    <script src="src/pages/Home.js"></script>
+    <script src="src/pages/About.js"></script>
+    <script src="src/pages/Crops.js"></script>
+    <script src="src/pages/Services.js"></script>
+    <script src="src/pages/Gallery.js"></script>
+    <script src="src/pages/Contact.js"></script>
+    
+    <!-- Main App Script -->
+    <script src="app.js"></script>
+</body>
+</html>
