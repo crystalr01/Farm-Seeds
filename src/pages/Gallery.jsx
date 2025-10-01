@@ -4,7 +4,7 @@ const Gallery = () => {
   const [filter, setFilter] = useState('all');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
+
   const galleryItems = [
     // Farm Fields & Crops
     { id: 1, title: "Tomato Field Cultivation", category: "crops", image: "https://images.unsplash.com/photo-1592921870789-04563d55041c?w=800&h=600&fit=crop", description: "Healthy tomato plants in organized rows" },
@@ -15,25 +15,25 @@ const Gallery = () => {
     { id: 6, title: "Eggplant Harvest", category: "crops", image: "https://images.unsplash.com/photo-1659261200833-ec8761558af7?w=800&h=600&fit=crop", description: "Fresh eggplants ready for market" },
     { id: 7, title: "Okra Plantation", category: "crops", image: "https://images.unsplash.com/photo-1628773822503-930a7eaecf80?w=800&h=600&fit=crop", description: "Okra plants with fresh green pods" },
     { id: 8, title: "Bottle Gourd Farm", category: "crops", image: "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=800&h=600&fit=crop", description: "Bottle gourds growing on vines" },
-    
+
     // Farming Technology & Equipment
     { id: 9, title: "Modern Irrigation System", category: "technology", image: "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deac?w=800&h=600&fit=crop", description: "Advanced drip irrigation in action" },
     { id: 10, title: "Tractor Operations", category: "technology", image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&h=600&fit=crop", description: "Modern farming equipment at work" },
     { id: 11, title: "Greenhouse Technology", category: "technology", image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop", description: "Climate-controlled growing environment" },
     { id: 12, title: "Seed Processing Unit", category: "technology", image: "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deac?w=800&h=600&fit=crop", description: "Modern seed processing facility" },
-    
+
     // Harvesting & Processing
     { id: 13, title: "Fresh Harvest Collection", category: "harvest", image: "https://images.unsplash.com/photo-1592921870789-04563d55041c?w=800&h=600&fit=crop", description: "Freshly harvested vegetables" },
     { id: 14, title: "Watermelon Harvest", category: "harvest", image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800&h=600&fit=crop", description: "Ripe watermelons ready for market" },
     { id: 15, title: "Pumpkin Collection", category: "harvest", image: "https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=800&h=600&fit=crop", description: "Orange pumpkins after harvest" },
     { id: 16, title: "Corn Field Harvest", category: "harvest", image: "https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=800&h=600&fit=crop", description: "Golden corn ready for harvest" },
-    
+
     // Nursery & Seedlings
     { id: 17, title: "Seedling Nursery", category: "nursery", image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=600&fit=crop", description: "Young plants in nursery trays" },
     { id: 18, title: "Tomato Seedlings", category: "nursery", image: "https://images.unsplash.com/photo-1592921870789-04563d55041c?w=800&h=600&fit=crop", description: "Healthy tomato seedlings growing" },
     { id: 19, title: "Pepper Seedlings", category: "nursery", image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&h=600&fit=crop", description: "Young pepper plants in trays" },
     { id: 20, title: "Vegetable Nursery", category: "nursery", image: "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?w=800&h=600&fit=crop", description: "Various vegetable seedlings" },
-    
+
     // Farm Infrastructure
     { id: 21, title: "Storage Facility", category: "infrastructure", image: "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deac?w=800&h=600&fit=crop", description: "Modern storage warehouse" },
     { id: 22, title: "Processing Center", category: "infrastructure", image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&h=600&fit=crop", description: "Crop processing facility" },
@@ -70,7 +70,7 @@ const Gallery = () => {
   useEffect(() => {
     const handleKeyPress = (e) => {
       if (!isModalOpen) return;
-      
+
       if (e.key === 'Escape') closeModal();
       if (e.key === 'ArrowRight') nextImage();
       if (e.key === 'ArrowLeft') prevImage();
@@ -78,20 +78,20 @@ const Gallery = () => {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [isModalOpen]);
+  }, [isModalOpen, closeModal, nextImage, prevImage]);
 
   // Auto-play slideshow in modal
   useEffect(() => {
     if (!isModalOpen) return;
-    
+
     const interval = setInterval(nextImage, 3000); // Auto-advance every 3 seconds
     return () => clearInterval(interval);
-  }, [isModalOpen, currentImageIndex]);
+  }, [isModalOpen, currentImageIndex, nextImage]);
 
   // Auto-slide background images for stats cards
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  
+
   useEffect(() => {
     const bgInterval = setInterval(() => {
       setIsAnimating(true);
@@ -100,9 +100,9 @@ const Gallery = () => {
         setIsAnimating(false);
       }, 200); // Small delay for smooth transition
     }, 1500); // Change background every 1.5 seconds
-    
+
     return () => clearInterval(bgInterval);
-  }, []);
+  }, [galleryItems.length]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
@@ -130,23 +130,23 @@ const Gallery = () => {
             {/* Total Photos Card */}
             <div className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-4 hover:rotate-1 animate-pulse-slow">
               {/* Background Image with Ken Burns Effect */}
-              <div 
+              <div
                 className={`absolute inset-0 bg-cover bg-center transition-all duration-700 transform ${isAnimating ? 'scale-110 blur-sm' : 'scale-105'} group-hover:scale-125`}
                 style={{
                   backgroundImage: `url(${galleryItems[currentBgIndex]?.image})`,
                 }}
               ></div>
-              
+
               {/* Animated Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-green-500/85 via-green-600/90 to-emerald-700/95 group-hover:from-green-400/90 group-hover:via-green-500/95 group-hover:to-emerald-600/95 transition-all duration-500"></div>
-              
+
               {/* Floating Particles Effect */}
               <div className="absolute inset-0 opacity-30">
                 <div className="absolute top-4 left-4 w-2 h-2 bg-white rounded-full animate-ping"></div>
                 <div className="absolute top-8 right-6 w-1 h-1 bg-white/70 rounded-full animate-pulse"></div>
                 <div className="absolute bottom-6 left-8 w-1.5 h-1.5 bg-white/50 rounded-full animate-bounce"></div>
               </div>
-              
+
               {/* Content */}
               <div className="relative p-8 text-center text-white">
                 <div className="bg-white/25 backdrop-blur-md rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-lg animate-bounce-slow">
@@ -157,31 +157,31 @@ const Gallery = () => {
                 </div>
                 <div className="font-bold text-xl text-white/95 mb-2 group-hover:text-2xl transition-all duration-300">Total Photos</div>
                 <div className="text-sm text-white/80 font-medium">High Quality Images</div>
-                
+
                 {/* Progress Bar */}
                 <div className="mt-4 w-full bg-white/20 rounded-full h-1 overflow-hidden">
-                  <div className="bg-white h-full rounded-full animate-pulse" style={{width: '100%'}}></div>
+                  <div className="bg-white h-full rounded-full animate-pulse" style={{ width: '100%' }}></div>
                 </div>
               </div>
             </div>
 
             {/* Crop Photos Card */}
-            <div className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-4 hover:-rotate-1 animate-pulse-slow" style={{animationDelay: '0.2s'}}>
-              <div 
+            <div className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-4 hover:-rotate-1 animate-pulse-slow" style={{ animationDelay: '0.2s' }}>
+              <div
                 className={`absolute inset-0 bg-cover bg-center transition-all duration-700 transform ${isAnimating ? 'scale-110 blur-sm' : 'scale-105'} group-hover:scale-125`}
                 style={{
                   backgroundImage: `url(${galleryItems[(currentBgIndex + 6) % galleryItems.length]?.image})`,
                 }}
               ></div>
-              
+
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/85 via-blue-600/90 to-cyan-700/95 group-hover:from-blue-400/90 group-hover:via-blue-500/95 group-hover:to-cyan-600/95 transition-all duration-500"></div>
-              
+
               <div className="absolute inset-0 opacity-30">
-                <div className="absolute top-6 right-4 w-2 h-2 bg-white rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
-                <div className="absolute top-12 left-6 w-1 h-1 bg-white/70 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-                <div className="absolute bottom-8 right-8 w-1.5 h-1.5 bg-white/50 rounded-full animate-bounce" style={{animationDelay: '0.3s'}}></div>
+                <div className="absolute top-6 right-4 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
+                <div className="absolute top-12 left-6 w-1 h-1 bg-white/70 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute bottom-8 right-8 w-1.5 h-1.5 bg-white/50 rounded-full animate-bounce" style={{ animationDelay: '0.3s' }}></div>
               </div>
-              
+
               <div className="relative p-8 text-center text-white">
                 <div className="bg-white/25 backdrop-blur-md rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-125 group-hover:-rotate-12 transition-all duration-500 shadow-lg animate-bounce-slow">
                   <i className="fas fa-seedling text-3xl group-hover:text-4xl transition-all duration-300"></i>
@@ -191,30 +191,30 @@ const Gallery = () => {
                 </div>
                 <div className="font-bold text-xl text-white/95 mb-2 group-hover:text-2xl transition-all duration-300">Crop Photos</div>
                 <div className="text-sm text-white/80 font-medium">Farm Cultivation</div>
-                
+
                 <div className="mt-4 w-full bg-white/20 rounded-full h-1 overflow-hidden">
-                  <div className="bg-white h-full rounded-full animate-pulse" style={{width: '75%'}}></div>
+                  <div className="bg-white h-full rounded-full animate-pulse" style={{ width: '75%' }}></div>
                 </div>
               </div>
             </div>
 
             {/* Technology Card */}
-            <div className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-4 hover:rotate-1 animate-pulse-slow" style={{animationDelay: '0.4s'}}>
-              <div 
+            <div className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-4 hover:rotate-1 animate-pulse-slow" style={{ animationDelay: '0.4s' }}>
+              <div
                 className={`absolute inset-0 bg-cover bg-center transition-all duration-700 transform ${isAnimating ? 'scale-110 blur-sm' : 'scale-105'} group-hover:scale-125`}
                 style={{
                   backgroundImage: `url(${galleryItems[(currentBgIndex + 12) % galleryItems.length]?.image})`,
                 }}
               ></div>
-              
+
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/85 via-purple-600/90 to-indigo-700/95 group-hover:from-purple-400/90 group-hover:via-purple-500/95 group-hover:to-indigo-600/95 transition-all duration-500"></div>
-              
+
               <div className="absolute inset-0 opacity-30">
-                <div className="absolute top-8 left-8 w-2 h-2 bg-white rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
-                <div className="absolute top-4 right-8 w-1 h-1 bg-white/70 rounded-full animate-pulse" style={{animationDelay: '0.7s'}}></div>
-                <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-white/50 rounded-full animate-bounce" style={{animationDelay: '0.9s'}}></div>
+                <div className="absolute top-8 left-8 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute top-4 right-8 w-1 h-1 bg-white/70 rounded-full animate-pulse" style={{ animationDelay: '0.7s' }}></div>
+                <div className="absolute bottom-4 left-4 w-1.5 h-1.5 bg-white/50 rounded-full animate-bounce" style={{ animationDelay: '0.9s' }}></div>
               </div>
-              
+
               <div className="relative p-8 text-center text-white">
                 <div className="bg-white/25 backdrop-blur-md rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-lg animate-bounce-slow">
                   <i className="fas fa-cogs text-3xl group-hover:text-4xl transition-all duration-300 animate-spin-slow"></i>
@@ -224,30 +224,30 @@ const Gallery = () => {
                 </div>
                 <div className="font-bold text-xl text-white/95 mb-2 group-hover:text-2xl transition-all duration-300">Technology</div>
                 <div className="text-sm text-white/80 font-medium">Modern Equipment</div>
-                
+
                 <div className="mt-4 w-full bg-white/20 rounded-full h-1 overflow-hidden">
-                  <div className="bg-white h-full rounded-full animate-pulse" style={{width: '60%'}}></div>
+                  <div className="bg-white h-full rounded-full animate-pulse" style={{ width: '60%' }}></div>
                 </div>
               </div>
             </div>
 
             {/* Harvest Card */}
-            <div className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-4 hover:-rotate-1 animate-pulse-slow" style={{animationDelay: '0.6s'}}>
-              <div 
+            <div className="group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-700 transform hover:-translate-y-4 hover:-rotate-1 animate-pulse-slow" style={{ animationDelay: '0.6s' }}>
+              <div
                 className={`absolute inset-0 bg-cover bg-center transition-all duration-700 transform ${isAnimating ? 'scale-110 blur-sm' : 'scale-105'} group-hover:scale-125`}
                 style={{
                   backgroundImage: `url(${galleryItems[(currentBgIndex + 18) % galleryItems.length]?.image})`,
                 }}
               ></div>
-              
+
               <div className="absolute inset-0 bg-gradient-to-br from-orange-500/85 via-red-600/90 to-pink-700/95 group-hover:from-orange-400/90 group-hover:via-red-500/95 group-hover:to-pink-600/95 transition-all duration-500"></div>
-              
+
               <div className="absolute inset-0 opacity-30">
-                <div className="absolute top-10 right-10 w-2 h-2 bg-white rounded-full animate-ping" style={{animationDelay: '1.2s'}}></div>
-                <div className="absolute top-6 left-10 w-1 h-1 bg-white/70 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
-                <div className="absolute bottom-10 right-4 w-1.5 h-1.5 bg-white/50 rounded-full animate-bounce" style={{animationDelay: '0.8s'}}></div>
+                <div className="absolute top-10 right-10 w-2 h-2 bg-white rounded-full animate-ping" style={{ animationDelay: '1.2s' }}></div>
+                <div className="absolute top-6 left-10 w-1 h-1 bg-white/70 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                <div className="absolute bottom-10 right-4 w-1.5 h-1.5 bg-white/50 rounded-full animate-bounce" style={{ animationDelay: '0.8s' }}></div>
               </div>
-              
+
               <div className="relative p-8 text-center text-white">
                 <div className="bg-white/25 backdrop-blur-md rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-125 group-hover:-rotate-12 transition-all duration-500 shadow-lg animate-bounce-slow">
                   <i className="fas fa-wheat-awn text-3xl group-hover:text-4xl transition-all duration-300"></i>
@@ -257,9 +257,9 @@ const Gallery = () => {
                 </div>
                 <div className="font-bold text-xl text-white/95 mb-2 group-hover:text-2xl transition-all duration-300">Harvest</div>
                 <div className="text-sm text-white/80 font-medium">Fresh Produce</div>
-                
+
                 <div className="mt-4 w-full bg-white/20 rounded-full h-1 overflow-hidden">
-                  <div className="bg-white h-full rounded-full animate-pulse" style={{width: '85%'}}></div>
+                  <div className="bg-white h-full rounded-full animate-pulse" style={{ width: '85%' }}></div>
                 </div>
               </div>
             </div>
@@ -280,14 +280,13 @@ const Gallery = () => {
               { key: 'nursery', label: 'Nursery', icon: '🌿' },
               { key: 'infrastructure', label: 'Infrastructure', icon: '🏭' }
             ].map(filterOption => (
-              <button 
+              <button
                 key={filterOption.key}
                 onClick={() => setFilter(filterOption.key)}
-                className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
-                  filter === filterOption.key 
-                    ? 'bg-gradient-to-r from-green-500 to-blue-600 text-white shadow-lg' 
+                className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${filter === filterOption.key
+                    ? 'bg-gradient-to-r from-green-500 to-blue-600 text-white shadow-lg'
                     : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-green-500 hover:shadow-md'
-                }`}
+                  }`}
               >
                 <span className="mr-2">{filterOption.icon}</span>
                 {filterOption.label}
@@ -298,8 +297,8 @@ const Gallery = () => {
           {/* Gallery Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredItems.map((item, index) => (
-              <div 
-                key={item.id} 
+              <div
+                key={item.id}
                 className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 overflow-hidden cursor-pointer"
                 onClick={() => openModal(index)}
                 style={{
@@ -307,8 +306,8 @@ const Gallery = () => {
                 }}
               >
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={item.image} 
+                  <img
+                    src={item.image}
                     alt={item.title}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     onError={(e) => {
@@ -350,7 +349,7 @@ const Gallery = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center">
           {/* Close Button */}
-          <button 
+          <button
             onClick={closeModal}
             className="absolute top-6 right-6 text-white hover:text-gray-300 text-3xl z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center transition-colors"
           >
@@ -358,14 +357,14 @@ const Gallery = () => {
           </button>
 
           {/* Navigation Arrows */}
-          <button 
+          <button
             onClick={prevImage}
             className="absolute left-6 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 text-3xl z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center transition-colors"
           >
             <i className="fas fa-chevron-left"></i>
           </button>
-          
-          <button 
+
+          <button
             onClick={nextImage}
             className="absolute right-6 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 text-3xl z-10 bg-black/50 rounded-full w-12 h-12 flex items-center justify-center transition-colors"
           >
@@ -374,8 +373,8 @@ const Gallery = () => {
 
           {/* Main Image */}
           <div className="max-w-6xl max-h-[80vh] mx-auto px-4">
-            <img 
-              src={filteredItems[currentImageIndex]?.image} 
+            <img
+              src={filteredItems[currentImageIndex]?.image}
               alt={filteredItems[currentImageIndex]?.title}
               className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
             />
@@ -402,14 +401,13 @@ const Gallery = () => {
                   <button
                     key={item.id}
                     onClick={() => goToImage(index)}
-                    className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
-                      index === currentImageIndex 
-                        ? 'border-white shadow-lg' 
+                    className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${index === currentImageIndex
+                        ? 'border-white shadow-lg'
                         : 'border-white/30 hover:border-white/60'
-                    }`}
+                      }`}
                   >
-                    <img 
-                      src={item.image} 
+                    <img
+                      src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover"
                     />
@@ -421,7 +419,7 @@ const Gallery = () => {
 
           {/* Progress Bar */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-white/20">
-            <div 
+            <div
               className="h-full bg-gradient-to-r from-green-500 to-blue-500 transition-all duration-5000 ease-linear"
               style={{ width: `${((currentImageIndex + 1) / filteredItems.length) * 100}%` }}
             ></div>

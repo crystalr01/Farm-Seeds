@@ -4,13 +4,13 @@ const Crops = () => {
   const [filter, setFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleCrops, setVisibleCrops] = useState([]);
-  
+
   const crops = [
     // Vegetables
-    { 
-      id: 1, 
-      name: "Tomato", 
-      season: "kharif", 
+    {
+      id: 1,
+      name: "Tomato",
+      season: "kharif",
       category: "vegetable",
       image: "https://images.unsplash.com/photo-1546470427-e5ac89c8ba3c?w=400&h=300&fit=crop",
       description: "Rich in vitamins and antioxidants, perfect for Indian climate",
@@ -18,10 +18,10 @@ const Crops = () => {
       yield: "15-25 tons/hectare",
       color: "from-red-400 to-red-600"
     },
-    { 
-      id: 2, 
-      name: "Hot Pepper", 
-      season: "kharif", 
+    {
+      id: 2,
+      name: "Hot Pepper",
+      season: "kharif",
       category: "spice",
       image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=300&fit=crop",
       description: "Essential spice crop with high market demand",
@@ -29,10 +29,10 @@ const Crops = () => {
       yield: "8-12 tons/hectare",
       color: "from-red-500 to-orange-600"
     },
-    { 
-      id: 3, 
-      name: "Sweet Pepper", 
-      season: "rabi", 
+    {
+      id: 3,
+      name: "Sweet Pepper",
+      season: "rabi",
       category: "vegetable",
       image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=400&h=300&fit=crop",
       description: "Colorful bell peppers rich in vitamin C",
@@ -40,10 +40,10 @@ const Crops = () => {
       yield: "20-30 tons/hectare",
       color: "from-green-400 to-yellow-500"
     },
-    { 
-      id: 4, 
-      name: "Watermelon", 
-      season: "summer", 
+    {
+      id: 4,
+      name: "Watermelon",
+      season: "summer",
       category: "fruit",
       image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=300&fit=crop",
       description: "Refreshing summer fruit with high water content",
@@ -51,10 +51,10 @@ const Crops = () => {
       yield: "25-40 tons/hectare",
       color: "from-green-500 to-red-400"
     },
-    { 
-      id: 5, 
-      name: "Muskmelon", 
-      season: "summer", 
+    {
+      id: 5,
+      name: "Muskmelon",
+      season: "summer",
       category: "fruit",
       image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=300&fit=crop",
       description: "Sweet aromatic melon perfect for hot climate",
@@ -62,10 +62,10 @@ const Crops = () => {
       yield: "15-25 tons/hectare",
       color: "from-orange-400 to-yellow-500"
     },
-    { 
-      id: 6, 
-      name: "Cucumber", 
-      season: "kharif", 
+    {
+      id: 6,
+      name: "Cucumber",
+      season: "kharif",
       category: "vegetable",
       image: "https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?w=400&h=300&fit=crop",
       description: "Cool and crisp vegetable with high water content",
@@ -73,10 +73,10 @@ const Crops = () => {
       yield: "12-18 tons/hectare",
       color: "from-green-400 to-green-600"
     },
-    { 
-      id: 7, 
-      name: "Pumpkin", 
-      season: "kharif", 
+    {
+      id: 7,
+      name: "Pumpkin",
+      season: "kharif",
       category: "vegetable",
       image: "https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=400&h=300&fit=crop",
       description: "Nutritious orange vegetable rich in beta-carotene",
@@ -84,10 +84,10 @@ const Crops = () => {
       yield: "20-35 tons/hectare",
       color: "from-orange-400 to-orange-600"
     },
-    { 
-      id: 8, 
-      name: "Eggplant", 
-      season: "kharif", 
+    {
+      id: 8,
+      name: "Eggplant",
+      season: "kharif",
       category: "vegetable",
       image: "https://images.unsplash.com/photo-1659261200833-ec8761558af7?w=400&h=300&fit=crop",
       description: "Popular Indian vegetable known as brinjal",
@@ -95,10 +95,10 @@ const Crops = () => {
       yield: "15-25 tons/hectare",
       color: "from-purple-500 to-purple-700"
     },
-    { 
-      id: 9, 
-      name: "Bottle Gourd", 
-      season: "kharif", 
+    {
+      id: 9,
+      name: "Bottle Gourd",
+      season: "kharif",
       category: "vegetable",
       image: "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=400&h=300&fit=crop",
       description: "Light green vegetable perfect for Indian cuisine",
@@ -106,10 +106,10 @@ const Crops = () => {
       yield: "25-40 tons/hectare",
       color: "from-green-300 to-green-500"
     },
-    { 
-      id: 10, 
-      name: "Okra", 
-      season: "kharif", 
+    {
+      id: 10,
+      name: "Okra",
+      season: "kharif",
       category: "vegetable",
       image: "https://images.unsplash.com/photo-1628773822503-930a7eaecf80?w=400&h=300&fit=crop",
       description: "Popular Indian vegetable known as bhindi",
@@ -118,10 +118,10 @@ const Crops = () => {
       color: "from-green-400 to-green-600"
     },
     // Cereals
-    { 
-      id: 11, 
-      name: "Rice", 
-      season: "kharif", 
+    {
+      id: 11,
+      name: "Rice",
+      season: "kharif",
       category: "cereal",
       image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop",
       description: "Staple food crop grown in flooded fields",
@@ -129,10 +129,10 @@ const Crops = () => {
       yield: "3-5 tons/hectare",
       color: "from-yellow-400 to-green-500"
     },
-    { 
-      id: 12, 
-      name: "Wheat", 
-      season: "rabi", 
+    {
+      id: 12,
+      name: "Wheat",
+      season: "rabi",
       category: "cereal",
       image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=300&fit=crop",
       description: "Major cereal crop grown in cooler months",
@@ -140,10 +140,10 @@ const Crops = () => {
       yield: "3-4 tons/hectare",
       color: "from-yellow-500 to-amber-600"
     },
-    { 
-      id: 13, 
-      name: "Maize", 
-      season: "kharif", 
+    {
+      id: 13,
+      name: "Maize",
+      season: "kharif",
       category: "cereal",
       image: "https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=400&h=300&fit=crop",
       description: "Versatile crop used for food and feed",
@@ -152,10 +152,10 @@ const Crops = () => {
       color: "from-yellow-400 to-yellow-600"
     },
     // Spices & Flowers
-    { 
-      id: 14, 
-      name: "Marigold", 
-      season: "rabi", 
+    {
+      id: 14,
+      name: "Marigold",
+      season: "rabi",
       category: "flower",
       image: "https://images.unsplash.com/photo-1602030638412-bb8dcc0bc8b0?w=400&h=300&fit=crop",
       description: "Bright orange flowers used in festivals and decoration",
@@ -163,10 +163,10 @@ const Crops = () => {
       yield: "8-12 tons/hectare",
       color: "from-orange-400 to-red-500"
     },
-    { 
-      id: 15, 
-      name: "Turmeric", 
-      season: "kharif", 
+    {
+      id: 15,
+      name: "Turmeric",
+      season: "kharif",
       category: "spice",
       image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=400&h=300&fit=crop",
       description: "Golden spice with medicinal properties",
@@ -174,10 +174,10 @@ const Crops = () => {
       yield: "15-25 tons/hectare",
       color: "from-yellow-500 to-orange-600"
     },
-    { 
-      id: 16, 
-      name: "Coriander", 
-      season: "rabi", 
+    {
+      id: 16,
+      name: "Coriander",
+      season: "rabi",
       category: "spice",
       image: "https://images.unsplash.com/photo-1599909533730-8b9e1c4c8e7e?w=400&h=300&fit=crop",
       description: "Essential herb and spice in Indian cooking",
@@ -186,10 +186,10 @@ const Crops = () => {
       color: "from-green-400 to-green-600"
     },
     // Cash Crops
-    { 
-      id: 17, 
-      name: "Cotton", 
-      season: "kharif", 
+    {
+      id: 17,
+      name: "Cotton",
+      season: "kharif",
       category: "cash",
       image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=300&fit=crop",
       description: "Major fiber crop requiring long growing season",
@@ -197,10 +197,10 @@ const Crops = () => {
       yield: "1.5-2.5 tons/hectare",
       color: "from-white to-green-400"
     },
-    { 
-      id: 18, 
-      name: "Sugarcane", 
-      season: "year-round", 
+    {
+      id: 18,
+      name: "Sugarcane",
+      season: "year-round",
       category: "cash",
       image: "https://images.unsplash.com/photo-1574263867128-a3d5c1b1deac?w=400&h=300&fit=crop",
       description: "Long-duration crop for sugar production",
@@ -212,8 +212,8 @@ const Crops = () => {
 
   const filteredCrops = crops.filter(crop => {
     const matchesFilter = filter === 'all' || crop.season === filter || crop.category === filter;
-    const matchesSearch = crop.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-                         crop.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = crop.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      crop.description.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesFilter && matchesSearch;
   });
 
@@ -223,7 +223,7 @@ const Crops = () => {
       setVisibleCrops(filteredCrops);
     }, 100);
     return () => clearTimeout(timer);
-  }, [filter, searchTerm]);
+  }, [filter, searchTerm, filteredCrops]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-yellow-50">
@@ -274,14 +274,13 @@ const Crops = () => {
               { key: 'rabi', label: 'Rabi Season', icon: '❄️' },
               { key: 'summer', label: 'Summer Season', icon: '🔥' }
             ].map(filterOption => (
-              <button 
+              <button
                 key={filterOption.key}
                 onClick={() => setFilter(filterOption.key)}
-                className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
-                  filter === filterOption.key 
-                    ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg' 
+                className={`px-4 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${filter === filterOption.key
+                    ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg'
                     : 'bg-white border-2 border-gray-200 text-gray-700 hover:border-green-500 hover:shadow-md'
-                }`}
+                  }`}
               >
                 <span className="mr-2">{filterOption.icon}</span>
                 {filterOption.label}
@@ -316,8 +315,8 @@ const Crops = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {visibleCrops.map((crop, index) => (
-              <div 
-                key={crop.id} 
+              <div
+                key={crop.id}
                 className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 overflow-hidden"
                 style={{
                   animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
@@ -326,8 +325,8 @@ const Crops = () => {
                 {/* Image Container */}
                 <div className="relative overflow-hidden">
                   <div className={`absolute inset-0 bg-gradient-to-br ${crop.color} opacity-20 group-hover:opacity-30 transition-opacity duration-300`}></div>
-                  <img 
-                    src={crop.image} 
+                  <img
+                    src={crop.image}
                     alt={crop.name}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     onError={(e) => {
@@ -352,7 +351,7 @@ const Crops = () => {
                       <span className="text-sm text-gray-500">{crop.growthTime}</span>
                     </div>
                   </div>
-                  
+
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     {crop.description}
                   </p>
