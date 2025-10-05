@@ -137,7 +137,7 @@ const Gallery = () => {
                 <div className="relative overflow-hidden">
                   <img
                     src={item.image}
-                    alt={`Gallery image ${item.id}`}
+                    alt={`Gallery item ${item.id}`}
                     className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                     onError={(e) => {
                       e.target.src = `https://via.placeholder.com/400x300/22c55e/ffffff?text=Image+${item.id}`;
@@ -186,7 +186,7 @@ const Gallery = () => {
           <div className="max-w-6xl max-h-[80vh] mx-auto px-4">
             <img
               src={galleryItems[currentImageIndex]?.image}
-              alt={`Gallery image ${galleryItems[currentImageIndex]?.id}`}
+              alt={`Gallery item ${galleryItems[currentImageIndex]?.id}`}
               className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
             />
           </div>
@@ -215,7 +215,7 @@ const Gallery = () => {
                   >
                     <img
                       src={item.image}
-                      alt={`Gallery image ${item.id}`}
+                      alt={`Gallery item ${item.id}`}
                       className="w-full h-full object-cover"
                     />
                   </button>
