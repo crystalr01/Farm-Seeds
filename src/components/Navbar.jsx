@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ContactPopup from './ContactPopup';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
   const location = useLocation();
 
   const isActive = (path) => {
@@ -19,7 +21,7 @@ const Navbar = () => {
               <i className="fas fa-seedling text-white text-xl"></i>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-800">CropInfo</h1>
+              <h1 className="text-xl font-bold text-gray-800">Genovateinn Seeds</h1>
               <p className="text-xs text-gray-500">Smart Farming Solutions</p>
             </div>
           </Link>
@@ -50,14 +52,14 @@ const Navbar = () => {
             >
               <i className="fas fa-seedling mr-1"></i>Crops
             </Link>
-            <Link 
+            {/* <Link 
               to="/services" 
               className={`font-medium transition-colors duration-200 ${
                 isActive('/services') ? 'text-green-600 font-bold' : 'text-gray-700 hover:text-green-600'
               }`}
             >
               <i className="fas fa-cogs mr-1"></i>Services
-            </Link>
+            </Link> */}
             <Link 
               to="/gallery" 
               className={`font-medium transition-colors duration-200 ${
@@ -78,8 +80,11 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center">
-            <button className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
-              <i className="fas fa-phone mr-2"></i>Get Started
+            <button 
+              onClick={() => setIsContactPopupOpen(true)}
+              className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+            >
+              <i className="fas fa-rocket mr-2"></i>Get Started
             </button>
           </div>
 
@@ -144,6 +149,12 @@ const Navbar = () => {
           </div>
         )}
       </div>
+
+      {/* Contact Popup */}
+      <ContactPopup 
+        isOpen={isContactPopupOpen} 
+        onClose={() => setIsContactPopupOpen(false)} 
+      />
     </nav>
   );
 };

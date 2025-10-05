@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import ContactPopup from '../components/ContactPopup';
 
 const Home = () => {
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -16,7 +19,7 @@ const Home = () => {
               <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-6 leading-tight">
                 <span className="block">Welcome to</span>
                 <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                  CropInfo
+                  Genovateinn Seeds
                 </span>
                 <span className="block text-4xl md:text-5xl">Smart Farming Solutions</span>
               </h1>
@@ -28,14 +31,14 @@ const Home = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <Link 
-                to="/crops"
+              <button 
+                onClick={() => setIsContactPopupOpen(true)}
                 className="group bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
               >
                 <i className="fas fa-rocket mr-3 group-hover:animate-bounce"></i>
                 Get Started
                 <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform duration-300"></i>
-              </Link>
+              </button>
               <Link 
                 to="/about"
                 className="group border-2 border-green-500 text-green-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-green-500 hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -87,7 +90,7 @@ const Home = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
               Why Choose
               <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
-                CropInfo?
+               Genovateinn?
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -95,7 +98,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="bg-gradient-to-r from-green-500 to-green-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
                 <i className="fas fa-brain text-white text-2xl"></i>
@@ -125,9 +128,15 @@ const Home = () => {
                 Access all features on-the-go with our intuitive mobile application.
               </p>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
+
+      {/* Contact Popup */}
+      <ContactPopup 
+        isOpen={isContactPopupOpen} 
+        onClose={() => setIsContactPopupOpen(false)} 
+      />
     </div>
   );
 };

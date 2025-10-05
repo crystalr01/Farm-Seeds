@@ -88,11 +88,11 @@ const Contact = () => {
             <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-6 leading-tight">
               Contact
               <span className="bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Sagi Seeds
+                Us
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Ready to transform your farming experience? Get in touch with our seed production experts.
+              Get in touch with Genovate Innovation Seeds Private Limited for all your seed requirements.
             </p>
           </div>
         </div>
@@ -247,102 +247,63 @@ const Contact = () => {
 
             {/* Contact Information */}
             <div className="space-y-8">
-              {/* Office & Warehouse Address */}
+              {/* Company Details */}
               <div className="bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300">
                 <div className="flex items-start space-x-4">
                   <div className="bg-gradient-to-r from-green-500 to-green-600 p-4 rounded-2xl">
                     <i className="fas fa-building text-white text-2xl"></i>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-2xl font-bold text-gray-800 mb-3">Office & Warehouse</h4>
+                    <h4 className="text-2xl font-bold text-gray-800 mb-3">Company Details</h4>
                     <div className="text-gray-600 leading-relaxed">
-                      <p className="font-semibold text-green-600 mb-2">Sagi Seeds Pvt. Ltd.</p>
-                      <p># 12-57/1/10,</p>
-                      <p>Medchal Industrial Area,</p>
-                      <p>Near Fortune Foam,</p>
-                      <p>Medchal, Hyderabad (501401)</p>
-                      <p>Telangana, India.</p>
+                      <p className="font-bold text-green-600 mb-3 text-lg">GENOVATE INNOVATION SEEDS PRIVATE LIMITED</p>
+                      <p className="font-semibold text-gray-700 mb-2">REGISTERED OFFICE:</p>
+                      <p>W3001840/2 BALAJI NAGAR, DEOLGAON RAJA BULDANA,</p>
+                      <p>DEULGAON RAJA, BULDHANA, MAHARASHTRA, INDIA, 443204</p>
+                      <p className="mt-3 text-sm font-semibold text-gray-700">CIN: U01640MH2025PTC447484</p>
                     </div>
-                    <div className="mt-4 space-y-2">
+                    <div className="mt-6 space-y-3">
                       <div className="flex items-center">
-                        <i className="fas fa-phone text-green-600 mr-3"></i>
-                        <a href="tel:+916303828286" className="text-gray-700 hover:text-green-600 font-semibold">+91 - 63038 28286</a>
+                        <i className="fas fa-phone text-green-600 mr-3 text-lg"></i>
+                        <a href="tel:+919096795187" className="text-gray-700 hover:text-green-600 font-semibold text-lg">+91 9096795187</a>
                       </div>
                       <div className="flex items-center">
-                        <i className="fas fa-envelope text-green-600 mr-3"></i>
-                        <a href="mailto:admin@sagiseeds.com" className="text-gray-700 hover:text-green-600 font-semibold">admin@sagiseeds.com</a>
-                      </div>
-                      <div className="flex items-center">
-                        <i className="fas fa-globe text-green-600 mr-3"></i>
-                        <a href="https://www.sagiseeds.com" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-green-600 font-semibold">www.sagiseeds.com</a>
+                        <i className="fas fa-envelope text-green-600 mr-3 text-lg"></i>
+                        <a href="mailto:genovateinnseeds@gmail.com" className="text-gray-700 hover:text-green-600 font-semibold">genovateinnseeds@gmail.com</a>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Registered Office */}
+              {/* Map */}
               <div className="bg-white rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300">
-                <div className="flex items-start space-x-4">
+                <div className="flex items-start space-x-4 mb-6">
                   <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-4 rounded-2xl">
-                    <i className="fas fa-landmark text-white text-2xl"></i>
+                    <i className="fas fa-map-marker-alt text-white text-2xl"></i>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-2xl font-bold text-gray-800 mb-3">Registered Office</h4>
-                    <div className="text-gray-600 leading-relaxed">
-                      <p className="font-semibold text-blue-600 mb-2">Sagi Seeds Pvt. Ltd.</p>
-                      <p>Plat No.101, Orchid Fortune Icon,</p>
-                      <p>8-2-603, Road No.10 Banjarahills,</p>
-                      <p>Hyderabad, Telangana - 500034,</p>
-                      <p>India</p>
-                    </div>
-                    <div className="mt-4 space-y-2">
-                      <div className="flex items-center">
-                        <i className="fas fa-phone text-blue-600 mr-3"></i>
-                        <a href="tel:+918008156743" className="text-gray-700 hover:text-blue-600 font-semibold">+91 - 80081 56743</a>
-                      </div>
-                      <div className="flex items-center">
-                        <i className="fas fa-envelope text-blue-600 mr-3"></i>
-                        <a href="mailto:sagiseeds@sagiseeds.com" className="text-gray-700 hover:text-blue-600 font-semibold">sagiseeds@sagiseeds.com</a>
-                      </div>
-                      <div className="flex items-center">
-                        <i className="fas fa-globe text-blue-600 mr-3"></i>
-                        <a href="https://www.sagiseeds.com" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-blue-600 font-semibold">www.sagiseeds.com</a>
-                      </div>
-                    </div>
+                    <h4 className="text-2xl font-bold text-gray-800 mb-2">Our Location</h4>
+                    <p className="text-gray-600">Find us on the map below</p>
                   </div>
                 </div>
-              </div>
-
-              {/* Business Hours */}
-              <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-3xl p-8 text-white">
-                <div className="flex items-start space-x-4">
-                  <div className="bg-white/20 p-4 rounded-2xl">
-                    <i className="fas fa-clock text-2xl"></i>
-                  </div>
-                  <div>
-                    <h4 className="text-2xl font-bold mb-4">Business Hours</h4>
-                    <div className="space-y-2">
-                      <div className="flex justify-between">
-                        <span>Monday - Friday:</span>
-                        <span className="font-semibold">9:00 AM - 6:00 PM</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Saturday:</span>
-                        <span className="font-semibold">9:00 AM - 2:00 PM</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Sunday:</span>
-                        <span className="font-semibold">Closed</span>
-                      </div>
-                    </div>
-                    <div className="mt-4 p-3 bg-white/10 rounded-lg">
-                      <p className="text-sm">
-                        <i className="fas fa-info-circle mr-2"></i>
-                        For urgent inquiries, please call our 24/7 support line.
-                      </p>
-                    </div>
-                  </div>
+                <div className="w-full h-80 rounded-2xl overflow-hidden shadow-lg">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59793.45678901234!2d76.2!3d20.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd7b8b8b8b8b8b8%3A0x1234567890abcdef!2sDeulgaon%20Raja%2C%20Maharashtra%20443204!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Genovate Innovation Seeds Location"
+                  ></iframe>
+                </div>
+                <div className="mt-4 p-4 bg-gray-50 rounded-xl">
+                  <p className="text-sm text-gray-600 text-center">
+                    <i className="fas fa-info-circle mr-2"></i>
+                    Deulgaon Raja, Buldhana, Maharashtra - 443204
+                  </p>
                 </div>
               </div>
             </div>
